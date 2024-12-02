@@ -1,4 +1,29 @@
+"use client";
+
+import { CreateWalletButton } from "@/components/create-wallet-button";
+import { useState } from "react";
+import { useConnect, useDisconnect } from "wagmi";
+import { CreateContractBlock } from "@/components/create-contract-block";
+import { SetGreetingBlock } from "@/components/set-greeting-block";
+
 export default function Home() {
+	const { connectors, connect, status, error } = useConnect();
+	const { disconnect } = useDisconnect();
+
+	const [deployedContract, setDeployedContract] = useState<string>(() => {
+		if (typeof window !== "undefined") {
+			return localStorage.getItem("deployedContract") || "";
+		}
+		return "";
+	});
+
+	const [greetingTx, setGreetingTx] = useState<string>(() => {
+		if (typeof window !== "undefined") {
+			return localStorage.getItem("greetingTx") || "";
+		}
+		return "";
+	});
+
 	return (
 		<main className="bg-[#0052FF] text-white min-h-screen font-cbMono flex flex-col gap-6 items-center justify-top">
 			<section className="flex flex-col items-center justify-center w-full h-screen">
@@ -189,6 +214,59 @@ export default function Home() {
 						className="w-[300px] h-[300px]"
 					/>
 				</div>
+			</section>
+			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
+				<div className="flex flex-col gap-4 flex-1">
+					<h1 className="text-7xl text-start">Create a Wallet</h1>
+					<p>
+						To get you started with Base, click the button on the right to make
+						a simple wallet. Once you've created it move onto the next section!
+					</p>
+				</div>
+				<div className="bg-white flex-1 flex items-center h-[500px] rounded-md justify-center">
+					<CreateWalletButton />
+				</div>
+			</section>
+			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
+				<div className="flex flex-col gap-4 flex-1">
+					<h1 className="text-7xl text-start">Deploy a Smart Contract</h1>
+					<p>
+						You're a developer, so we're gonna speak your language: "Hello
+						World" but in our case "Hello Base" onchain. To the right is a
+						simple smart contract where we have the following:
+					</p>
+					<ul className="list-disc pl-4">
+						<li>A state variable to hold our greeting</li>
+						<li>A function to set the state</li>
+						<li>A function to read the state</li>
+					</ul>
+					<p>
+						With that, click the "Deploy" button below the code. This will
+						prompt a transaction to your new wallet, making this your first
+						smart contract deployed onchain!
+					</p>
+				</div>
+				<CreateContractBlock
+					deployedContract={deployedContract}
+					setDeployedContract={setDeployedContract}
+				/>
+			</section>
+			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
+				<div className="flex flex-col gap-4 flex-1">
+					<h1 className="text-7xl text-start">Write to the Contract</h1>
+					<p>Congrats!! Your contract is deployed 🎉</p>
+					<p>
+						Now we can interact with it by calling some of the functions. This
+						is done by using a JSON RPC provider that can take our instructions
+						+ an ABI (application binary interface) so the EVM can interpret it
+						and run the code.
+					</p>
+				</div>
+				<SetGreetingBlock
+					deployedContract={deployedContract}
+					greetingTx={greetingTx}
+					setGreetingTx={setGreetingTx}
+				/>
 			</section>
 		</main>
 	);
