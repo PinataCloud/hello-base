@@ -63,18 +63,16 @@ contract HelloBase {
 }`}
 				</code>
 			</pre>
-			{!deployedContract && (
-				<Button
-					onClick={deployContract}
-					disabled={isContractPending}
-					className="mx-auto mt-12"
-				>
-					<CoinbaseWalletLogo />
-					{isContractPending ? "Deploying..." : "Deploy"}
-				</Button>
-			)}
+			<Button
+				onClick={deployContract}
+				disabled={!!deployedContract}
+				className="mx-auto mt-12"
+			>
+				<CoinbaseWalletLogo />
+				{isContractPending ? "Deploying..." : "Deploy"}
+			</Button>
 
-			<div className="flex flex-col text-black">
+			<div className="flex flex-col text-black mt-6">
 				{isConfirming && <div>Waiting for confirmation...</div>}
 				{isConfirmed && !deployedContract && (
 					<div>
@@ -86,6 +84,7 @@ contract HelloBase {
 								setDeployedContract(contractAddress);
 								// Store in localStorage
 								localStorage.setItem("deployedContract", contractAddress);
+								return `Contract: ${contractAddress}`;
 							})()}
 					</div>
 				)}

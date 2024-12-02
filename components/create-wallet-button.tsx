@@ -20,7 +20,7 @@ export function CreateWalletButton() {
 	return (
 		<Button type="button" onClick={createWallet} className="text-white">
 			<CoinbaseWalletLogo />
-			{account ? "Connected!" : "Create Wallet"}
+			{account.isConnected ? "Connected!" : "Create Wallet"}
 		</Button>
 	);
 }

@@ -50,26 +50,30 @@ export function SetGreetingBlock({
 		<div className="bg-white flex-1 flex flex-col items-start p-4 rounded-md justify-center w-full">
 			<pre className="p-4 rounded-md text-black">
 				<code>{`async function setGreeting() {
-		try {
-				writeContract({
-						address: ${deployedContract},
-						abi: contract.abi,
-						functionName: "setGreeting",
-						args: ["Hello Base!!"],
-				});
-		} catch (error) {
-				console.log(error);
-		}
+  try {
+  	writeContract({
+  		address: ${deployedContract},
+  		abi: contract.abi,
+  		functionName: "setGreeting",
+  		args: ["Hello Base!!"],
+  	});
+  } catch (error) {
+  		console.log(error);
+  }
 }`}</code>
 			</pre>
-			<Button onClick={setGreeting} className="mx-auto mt-12">
+			<Button
+				disabled={!!greetingTx}
+				onClick={setGreeting}
+				className="mx-auto mt-12"
+			>
 				<CoinbaseWalletLogo />
 				{isContractPending ? "Writing..." : "Write to Contract"}
 			</Button>
 
-			<div className="flex flex-col text-black">
+			<div className="flex flex-col text-black mt-6">
 				{isConfirming && <div>Waiting for confirmation...</div>}
-				{isConfirmed && !deployedContract && (
+				{isConfirmed && deployedContract && (
 					<div>
 						Transaction confirmed
 						{hash &&
@@ -78,11 +82,11 @@ export function SetGreetingBlock({
 								setGreetingTx(hash);
 								// Store in localStorage
 								localStorage.setItem("greetingTx", hash);
-								return `tx: ${hash}`;
+								return "";
 							})()}
 					</div>
 				)}
-				{isConfirmed && <p>Tx: {greetingTx}</p>}
+				{greetingTx && <p>Tx: {greetingTx}</p>}
 			</div>
 		</div>
 	);
