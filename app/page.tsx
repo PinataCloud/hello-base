@@ -7,7 +7,7 @@ export default function Home() {
 					<br />
 					BASE
 				</h1>
-				<img src="/base_logo.svg" alt="base" className="w-[200px]" />
+				<img src="/base_logo.svg" alt="base logo" className="w-[200px]" />
 				<p className="mt-24 text-2xl">Coming soon</p>
 			</section>
 			<section className="flex flex-col items-center justify-center gap-4 max-w-xl h-screen">
