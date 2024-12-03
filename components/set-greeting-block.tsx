@@ -83,10 +83,10 @@ async function setGreeting() {
 					{isContractPending ? "Writing..." : "Write to Contract"}
 				</Button>
 			) : (
-				<p className="text-black">Create your wallet first!</p>
+				<p className="text-black mx-auto mt-12">Create your wallet first!</p>
 			)}
 
-			<div className="flex flex-col text-black mt-6">
+			<div className="flex flex-col items-center w-full text-black mt-6">
 				{isConfirming && <div>Waiting for confirmation...</div>}
 				{isConfirmed && deployedContract && (
 					<div>
@@ -101,13 +101,13 @@ async function setGreeting() {
 					</div>
 				)}
 				{greetingTx && (
-					<p>
+					<p className="text-center">
 						Tx:{" "}
 						<a
 							href={`https://sepolia.basescan.org/tx/${greetingTx}`}
 							target="_blank"
 							rel="noreferrer"
-							className="underline text-primary"
+							className="underline text-primary text-center"
 						>
 							{truncate(greetingTx)}
 						</a>

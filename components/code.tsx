@@ -1,4 +1,7 @@
+"use client";
+
 import { codeToHtml } from "shiki";
+import { useEffect, useState } from "react";
 import type { BundledLanguage, BundledTheme } from "shiki"; // Import the types from shiki
 
 type Props = {
@@ -7,20 +10,23 @@ type Props = {
 	theme?: BundledTheme;
 };
 
-export default async function Code({
+export default function Code({
 	code,
 	lang = "javascript",
-	theme = "catppuccin-latte",
+	theme = "min-light",
 }: Props) {
-	const html = await codeToHtml(code, {
-		lang,
-		theme,
-	});
+	const [html, setHtml] = useState<string>("");
 
-	return (
-		<div
-			className="opacity-75"
-			dangerouslySetInnerHTML={{ __html: html }}
-		></div>
-	);
+	useEffect(() => {
+		const highlight = async () => {
+			const highlighted = await codeToHtml(code, {
+				lang,
+				theme,
+			});
+			setHtml(highlighted);
+		};
+		highlight();
+	}, [code, lang, theme]);
+
+	return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
 }

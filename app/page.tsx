@@ -227,8 +227,15 @@ export default function Home() {
 				<div className="flex flex-col gap-4 flex-1">
 					<h1 className="text-7xl text-start">Create a Wallet</h1>
 					<p>
-						To get you started with Base, click the button on the right to make
-						a simple wallet. Once you've created it move onto the next section!
+						To get started on Base you'll need an account. The easiest way to do
+						that is through a wallet, which is a piece of software that makes it
+						easy to manage a blockchain account.
+					</p>
+					<p>
+						We've simplified the process of making a wallet, so all you have to
+						do is click the button on the right that says "Create Wallet."
+						Everything we'll do is on a testnet so there won't be any real funds
+						being used here. Always test on dev first ;)
 					</p>
 				</div>
 				<div className="bg-white flex-1 flex items-center h-[500px] rounded-md justify-center">
@@ -240,7 +247,7 @@ export default function Home() {
 					<h1 className="text-7xl text-start">Deploy a Smart Contract</h1>
 					<p>
 						You're a developer, so we're gonna speak your language: "Hello
-						World" but in our case "Hello Base" onchain. To the right is a
+						World," but in our case "Hello Base" onchain. To the right is a
 						simple smart contract where we have the following:
 					</p>
 					<ul className="list-disc pl-4">

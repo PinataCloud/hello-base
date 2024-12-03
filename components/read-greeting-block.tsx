@@ -38,11 +38,11 @@ export function ReadGreetingBlock({
 			<Code
 				lang="ts"
 				code={`
-  const { data, isLoading, status } = useReadContract({
-    abi: contract.abi,
-  	address: ${deployedContract}
-  	functionName: "getGreeting",
-  });
+const { data, isLoading, status } = useReadContract({
+  abi: contract.abi,
+ 	address: ${deployedContract}
+ 	functionName: "getGreeting",
+});
 `}
 			/>
 			{account.isConnected ? (
@@ -51,10 +51,10 @@ export function ReadGreetingBlock({
 					Read Contract
 				</Button>
 			) : (
-				<p className="text-black">Create your wallet first!</p>
+				<p className="text-black mx-auto mt-12">Create your wallet first!</p>
 			)}
 
-			<div className="flex flex-col text-black mt-6">
+			<div className="flex flex-col items-center text-black mt-6">
 				{!isLoading && greeting && <p>Greeting: {greeting}</p>}
 				{greeting && greeting.startsWith("ipfs") && (
 					<a
