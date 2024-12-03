@@ -53,10 +53,9 @@ const { data, isLoading, status } = useReadContract({
 			) : (
 				<p className="text-black mx-auto mt-12">Create your wallet first!</p>
 			)}
-
 			<div className="flex flex-col items-center text-black mt-6">
 				{!isLoading && greeting && <p>Greeting: {greeting}</p>}
-				{greeting && greeting.startsWith("ipfs") && (
+				{greeting?.startsWith("ipfs") && (
 					<a
 						href={`https://dweb.mypinata.cloud/ipfs/${greeting.slice(7)}`}
 						className="underline mt-4 text-center text-primary"
