@@ -35,14 +35,19 @@ export default function Home() {
 
 	return (
 		<main className="bg-[#0052FF] text-white min-h-screen font-cbMono flex flex-col sm:gap-6 gap-36 items-center justify-top">
-			<section className="flex flex-col items-center justify-center w-full min-h-screen">
+			<section className="flex flex-col items-center justify-center w-full gap-4 min-h-screen">
 				<h1 className="sm:text-9xl text-8xl text-center">
 					HELLO
 					<br />
 					BASE
 				</h1>
 				<img src="/base_logo.svg" alt="base logo" className="w-[200px]" />
-				<div className="flex flex-row  gap-4 items-center justify-center mt-24">
+				<a
+					className="flex flex-row  gap-4 items-center justify-center mt-24"
+					href="https://pinata.cloud"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<p className="text-2xl">by</p>
 					<Image
 						src="/pinata_logo.png"
@@ -51,7 +56,7 @@ export default function Home() {
 						width={800}
 						className="w-[130px]"
 					/>{" "}
-				</div>
+				</a>
 			</section>
 			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
 				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
@@ -65,15 +70,21 @@ export default function Home() {
 					</p>
 					<p>
 						You don't need anything to start this tutorial, we'll take care of
-						everything for you. just start scrolling!
+						everything for you. Just start scrolling!
 					</p>
 				</div>
 				<div className="flex-1 flex items-center justify-center">
-					<img
-						src="/base_logo.svg"
-						alt="base"
-						className="w-[300px] h-[300px]"
-					/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						className="w-[300px] h-[300px] text-current"
+					>
+						<title>handshake</title>
+						<path
+							fill="currentColor"
+							d="M12.1 21q-.425 0-.712-.288T11.1 20q0-.175.075-.363t.225-.337l4.625-4.625l-.725-.725l-4.6 4.625q-.15.15-.325.225t-.375.075q-.425 0-.712-.287T9 17.875q0-.25.075-.413t.2-.287L13.9 12.55l-.7-.7l-4.625 4.6q-.15.15-.325.225t-.4.075q-.4 0-.7-.3t-.3-.7q0-.2.075-.375t.225-.325l4.625-4.625l-.725-.7l-4.6 4.625q-.125.125-.3.2t-.425.075q-.425 0-.713-.288t-.287-.712q0-.2.075-.375t.225-.325L10.6 7.35l3.75 3.775q.275.275.65.438t.75.162q.8 0 1.4-.562t.6-1.438q0-.35-.125-.725t-.45-.7L12.7 3.825q.425-.4.95-.612T14.7 3q.65 0 1.2.213t1 .662l4.225 4.25q.45.45.663 1T22 10.4q0 .5-.225 1.013t-.65.937L12.8 20.7q-.2.2-.35.25t-.35.05m-8.575-8l-.65-.65q-.425-.4-.65-.95T2 10.25q0-.65.25-1.2t.625-.925L7.1 3.875q.4-.4.95-.638T9.125 3q.675 0 1.2.188t1.025.687L16.475 9q.15.15.225.325t.075.375q0 .4-.3.7t-.7.3q-.225 0-.375-.062t-.325-.238l-4.5-4.45z"
+						/>
+					</svg>
 				</div>
 			</section>
 			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
@@ -102,11 +113,22 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="flex-1 flex items-center justify-center">
-					<img
-						src="/base_logo.svg"
-						alt="base"
-						className="w-[300px] sm:h-[300px] h-auto"
-					/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						className="w-[300px] h-[300px] text-current"
+					>
+						<title>blockchain</title>
+						<path
+							fill="none"
+							stroke="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="1.5"
+							d="M12 17c.227 0 .438-.106.86-.318l3.39-1.704c1.5-.754 2.25-1.131 2.25-1.728v-7.5M12 17c-.227 0-.438-.106-.86-.318l-3.39-1.704c-1.5-.754-2.25-1.131-2.25-1.728v-7.5M12 17V9.5m6.5-3.75c0-.597-.75-.974-2.25-1.728l-3.39-1.704C12.438 2.106 12.227 2 12 2s-.438.106-.86.318L7.75 4.022C6.25 4.776 5.5 5.153 5.5 5.75m13 0c0 .597-.75.974-2.25 1.728l-3.39 1.704c-.422.212-.633.318-.86.318M5.5 5.75c0 .597.75.974 2.25 1.728l3.39 1.704c.422.212.633.318.86.318m-2 11.25c0-.69.56-1.25 1.25-1.25h1.5c.69 0 1.25.56 1.25 1.25m-4 0c0 .69.56 1.25 1.25 1.25h1.5c.69 0 1.25-.56 1.25-1.25m-4 0H5m9 0h5"
+							color="currentColor"
+						/>
+					</svg>
 				</div>
 			</section>
 			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
@@ -133,11 +155,22 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="flex-1 flex items-center justify-center">
-					<img
-						src="/base_logo.svg"
-						alt="base"
-						className="w-[300px] h-[300px]"
-					/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						className="w-[300px] h-[300px] text-current"
+					>
+						<title>Ethereum</title>
+						<path
+							fill="none"
+							stroke="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="1.5"
+							d="m19 12l-5.76 2.579c-.611.28-.917.421-1.24.421s-.629-.14-1.24-.421L5 12m14 0c0-.532-.305-1-.917-1.936L14.58 4.696C13.406 2.9 12.82 2 12 2s-1.406.899-2.58 2.696l-3.503 5.368C5.306 11 5 11.468 5 12m14 0c0 .532-.305 1-.917 1.936l-3.503 5.368C13.406 21.1 12.82 22 12 22s-1.406-.899-2.58-2.696l-3.503-5.368C5.306 13 5 12.532 5 12"
+							color="currentColor"
+						/>
+					</svg>
 				</div>
 			</section>
 			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
@@ -164,11 +197,21 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="flex-1 flex items-center justify-center">
-					<img
-						src="/base_logo.svg"
-						alt="base"
-						className="w-[300px] h-[300px]"
-					/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 32 32"
+						className="w-[300px] h-[300px] text-current"
+					>
+						<title>Eth problem</title>
+						<path
+							fill="currentColor"
+							d="M31 25a6 6 0 1 0-6 6a6.007 6.007 0 0 0 6-6m-2 0a3.95 3.95 0 0 1-.567 2.019l-5.452-5.452A3.95 3.95 0 0 1 25 21a4.005 4.005 0 0 1 4 4m-8 0a3.95 3.95 0 0 1 .567-2.019l5.452 5.452A3.95 3.95 0 0 1 25 29a4.005 4.005 0 0 1-4-4m-1.41-9L17 18.59L18.42 20l4-4l-4-4L17 13.41zm-9.18 0L13 13.41L11.58 12l-4 4l4 4L13 18.59z"
+						/>
+						<path
+							fill="currentColor"
+							d="M4 9h22v7h2V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h12v-2H4Zm0-5h22v3H4Z"
+						/>
+					</svg>
 				</div>
 			</section>
 			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
@@ -193,11 +236,24 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="flex-1 flex items-center justify-center">
-					<img
-						src="/base_logo.svg"
-						alt="base"
-						className="w-[300px] h-[300px]"
-					/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						className="w-[300px] h-[300px] text-current"
+					>
+						<title>rollup</title>
+						<g
+							fill="none"
+							stroke="currentColor"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="1.5"
+							color="currentColor"
+						>
+							<path d="M5 9.5C5 10.88 7.015 12 9.5 12S14 10.88 14 9.5S11.985 7 9.5 7S5 8.12 5 9.5" />
+							<path d="M14 16.647C14 17.947 11.985 19 9.5 19S5 17.947 5 16.647V9.5m9 0v4m-4.5-4h-.009M2 18l20-7M2 14l3-1.35M22 5l-8 3.6" />
+						</g>
+					</svg>
 				</div>
 			</section>
 			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
