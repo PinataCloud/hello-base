@@ -4,6 +4,7 @@ import { factory } from "@/lib/contracts";
 import { useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { Button } from "./ui/button";
 import { CoinbaseWalletLogo } from "./coinbase-wallet-logo";
+import { truncate } from "@/lib/utils";
 
 export function CreateContractBlock({
 	deployedContract,
@@ -76,7 +77,6 @@ contract HelloBase {
 				{isConfirming && <div>Waiting for confirmation...</div>}
 				{isConfirmed && !deployedContract && (
 					<div>
-						Transaction confirmed: {hash}
 						{receipt.logs[1].data &&
 							(() => {
 								const contractAddress = `0x${receipt.logs[1].data.slice(26)}`;
@@ -84,11 +84,23 @@ contract HelloBase {
 								setDeployedContract(contractAddress);
 								// Store in localStorage
 								localStorage.setItem("deployedContract", contractAddress);
-								return `Contract: ${contractAddress}`;
+								return "";
 							})()}
 					</div>
 				)}
-				{deployedContract && <p>Contract: {deployedContract}</p>}
+				{deployedContract && (
+					<p>
+						Contract:{" "}
+						<a
+							href={`https://sepolia.basescan.org/address/${deployedContract}`}
+							target="_blank"
+							rel="noreferrer"
+							className="underline text-primary"
+						>
+							{truncate(deployedContract)}
+						</a>
+					</p>
+				)}
 			</div>
 		</div>
 	);

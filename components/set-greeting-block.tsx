@@ -4,6 +4,7 @@ import { contract } from "@/lib/contracts";
 import { useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import { Button } from "./ui/button";
 import { CoinbaseWalletLogo } from "./coinbase-wallet-logo";
+import { truncate } from "@/lib/utils";
 
 interface SetGreetingBlockProps {
 	deployedContract: string;
@@ -47,7 +48,7 @@ export function SetGreetingBlock({
 	});
 
 	return (
-		<div className="bg-white flex-1 flex flex-col items-start p-4 rounded-md justify-center w-full">
+		<div className="bg-white flex-1 flex flex-col items-center p-4 rounded-md justify-center w-full">
 			<pre className="p-4 rounded-md text-black">
 				<code>{`async function setGreeting() {
   try {
@@ -75,7 +76,6 @@ export function SetGreetingBlock({
 				{isConfirming && <div>Waiting for confirmation...</div>}
 				{isConfirmed && deployedContract && (
 					<div>
-						Transaction confirmed
 						{hash &&
 							(() => {
 								// Store in state
@@ -86,7 +86,19 @@ export function SetGreetingBlock({
 							})()}
 					</div>
 				)}
-				{greetingTx && <p>Tx: {greetingTx}</p>}
+				{greetingTx && (
+					<p>
+						Tx:{" "}
+						<a
+							href={`https://sepolia.basescan.org/tx/${greetingTx}`}
+							target="_blank"
+							rel="noreferrer"
+							className="underline text-primary"
+						>
+							{truncate(greetingTx)}
+						</a>
+					</p>
+				)}
 			</div>
 		</div>
 	);

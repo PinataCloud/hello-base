@@ -261,6 +261,12 @@ export default function Home() {
 						+ an ABI (application binary interface) so the EVM can interpret it
 						and run the code.
 					</p>
+					<p>
+						Since the RPC uses JSON we can use libraries in Typescript, making
+						it really easy to access onchain data in modern web apps like the
+						one you're using now. The code on the right is being used when you
+						click "Write to Contract"!
+					</p>
 				</div>
 				<SetGreetingBlock
 					deployedContract={deployedContract}
