@@ -1,22 +1,30 @@
 "use client";
 
 import { contract } from "@/lib/contracts";
-import { useWaitForTransactionReceipt, useWriteContract } from "wagmi";
+import {
+	useAccount,
+	useWaitForTransactionReceipt,
+	useWriteContract,
+} from "wagmi";
 import { Button } from "./ui/button";
 import { CoinbaseWalletLogo } from "./coinbase-wallet-logo";
 import { truncate } from "@/lib/utils";
+import Code from "./code";
 
 interface SetGreetingBlockProps {
 	deployedContract: string;
 	greetingTx: string;
 	setGreetingTx: (hash: string) => void;
+	greetingArg: string;
 }
 
 export function SetGreetingBlock({
 	deployedContract,
 	greetingTx,
 	setGreetingTx,
+	greetingArg,
 }: SetGreetingBlockProps) {
+	const account = useAccount();
 	const {
 		data: hash,
 		isPending: isContractPending,
@@ -32,7 +40,7 @@ export function SetGreetingBlock({
 				address: deployedContract as `0x`,
 				abi: contract.abi,
 				functionName: "setGreeting",
-				args: ["Hello Base!!"],
+				args: [greetingArg],
 			});
 		} catch (error) {
 			console.log(error);
@@ -48,29 +56,35 @@ export function SetGreetingBlock({
 	});
 
 	return (
-		<div className="bg-white flex-1 flex flex-col items-center p-4 rounded-md justify-center w-full">
-			<pre className="p-4 rounded-md text-black">
-				<code>{`async function setGreeting() {
+		<div className="bg-white flex-1 flex flex-col items-start p-4 rounded-md justify-center w-full">
+			<Code
+				lang="ts"
+				code={`
+async function setGreeting() {
   try {
   	writeContract({
   		address: ${deployedContract},
   		abi: contract.abi,
   		functionName: "setGreeting",
-  		args: ["Hello Base!!"],
+  		args: ["${greetingArg}"],
   	});
   } catch (error) {
-  		console.log(error);
+    console.log(error);
   }
-}`}</code>
-			</pre>
-			<Button
-				disabled={!!greetingTx}
-				onClick={setGreeting}
-				className="mx-auto mt-12"
-			>
-				<CoinbaseWalletLogo />
-				{isContractPending ? "Writing..." : "Write to Contract"}
-			</Button>
+}`}
+			/>
+			{account.isConnected ? (
+				<Button
+					disabled={!!greetingTx}
+					onClick={setGreeting}
+					className="mx-auto mt-12"
+				>
+					<CoinbaseWalletLogo />
+					{isContractPending ? "Writing..." : "Write to Contract"}
+				</Button>
+			) : (
+				<p className="text-black">Create your wallet first!</p>
+			)}
 
 			<div className="flex flex-col text-black mt-6">
 				{isConfirming && <div>Waiting for confirmation...</div>}

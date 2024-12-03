@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useConnect, useDisconnect } from "wagmi";
 import { CreateContractBlock } from "@/components/create-contract-block";
 import { SetGreetingBlock } from "@/components/set-greeting-block";
+import { ReadGreetingBlock } from "@/components/read-greeting-block";
 
 export default function Home() {
 	const { connectors, connect, status, error } = useConnect();
@@ -20,6 +21,13 @@ export default function Home() {
 	const [greetingTx, setGreetingTx] = useState<string>(() => {
 		if (typeof window !== "undefined") {
 			return localStorage.getItem("greetingTx") || "";
+		}
+		return "";
+	});
+
+	const [offchainGreetingTx, setOffchainGreetingTx] = useState<string>(() => {
+		if (typeof window !== "undefined") {
+			return localStorage.getItem("offchainGreetingTx") || "";
 		}
 		return "";
 	});
@@ -272,7 +280,92 @@ export default function Home() {
 					deployedContract={deployedContract}
 					greetingTx={greetingTx}
 					setGreetingTx={setGreetingTx}
+					greetingArg="Hello Base!!"
 				/>
+			</section>
+			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
+				<div className="flex flex-col gap-4 flex-1">
+					<h1 className="text-7xl text-start">Read Contract</h1>
+					<p>
+						Now that you've set the greeting state on the contract, let's read
+						it!
+					</p>
+					<p>
+						We'll use the same Typescript library and pass in our contract
+						address, as well as the previously mentioned ABI and function name.
+					</p>
+					<p>Just click the "Read Contract" button to fetch the greeting!</p>
+				</div>
+				<ReadGreetingBlock deployedContract={deployedContract} />
+			</section>
+			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
+				<div className="flex flex-col gap-4 flex-1">
+					<h1 className="text-7xl text-start">Offchain Data</h1>
+					<p>Ok we got strings, but what about larger pieces of data?</p>
+					<p>
+						Storing larger pieces of data onchain has proven to be difficult as
+						it requires more space on the blockchain, and that means much higher
+						gas payments. The solution is using a string as an offchain pointer,
+						where we can fetch the data after getting the pointer.
+					</p>
+					<p>
+						Another problem quickly encountered was that offchain storage with
+						services like AWS are mutable and could be taken down, which is not
+						ideal when you're building with an immutable ledger. The most
+						popular solution became{" "}
+						<a
+							href="https://ipfs.io"
+							className="underline"
+							target="_blank"
+							rel="noreferrer"
+						>
+							IPFS
+						</a>
+						, a distribured immutable file sharing protocol.
+					</p>
+					<p>
+						You can learn more about IPFS{" "}
+						<a
+							href="https://docs.pinata.cloud/web3/ipfs-101"
+							target="_blank"
+							rel="noreferrer"
+							className="underline"
+						>
+							here
+						</a>
+						, but for now we'll change our greeting to an offchain pointer on
+						IPFS via{" "}
+						<a
+							href="https://pinata.cloud"
+							className="underline"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Pinata
+						</a>
+					</p>
+				</div>
+				<SetGreetingBlock
+					deployedContract={deployedContract}
+					greetingTx={offchainGreetingTx}
+					setGreetingTx={setOffchainGreetingTx}
+					greetingArg="ipfs://QmVLwvmGehsrNEvhcCnnsw5RQNseohgEkFNN1848zNzdng"
+				/>
+			</section>
+			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
+				<div className="flex flex-col gap-4 flex-1">
+					<h1 className="text-7xl text-start">Reading Offchain Data</h1>
+					<p>
+						Just like before we'll make a call to the contract to get the
+						greeting.
+					</p>
+					<p>
+						Since we know we're expecting an offchain reference on IPFS, we can
+						render the response as a link we can click on to access it while it
+						lives on IPFS
+					</p>
+				</div>
+				<ReadGreetingBlock deployedContract={deployedContract} />
 			</section>
 		</main>
 	);

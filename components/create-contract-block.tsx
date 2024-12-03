@@ -1,10 +1,16 @@
 "use client";
 
 import { factory } from "@/lib/contracts";
-import { useWaitForTransactionReceipt, useWriteContract } from "wagmi";
+import {
+	useAccount,
+	useWaitForTransactionReceipt,
+	useWriteContract,
+} from "wagmi";
 import { Button } from "./ui/button";
 import { CoinbaseWalletLogo } from "./coinbase-wallet-logo";
 import { truncate } from "@/lib/utils";
+import { codeToHtml } from "shiki";
+import Code from "./code";
 
 export function CreateContractBlock({
 	deployedContract,
@@ -13,6 +19,7 @@ export function CreateContractBlock({
 	deployedContract: string;
 	setDeployedContract: (address: string) => void;
 }) {
+	const account = useAccount();
 	const {
 		data: hash,
 		isPending: isContractPending,
@@ -41,9 +48,10 @@ export function CreateContractBlock({
 
 	return (
 		<div className="bg-white flex-1 flex flex-col items-center p-4 rounded-md justify-center w-full">
-			<pre className="p-4 rounded-md text-black">
-				<code>
-					{`// SPDX-License-Identifier: MIT
+			<Code
+				lang="solidity"
+				code={`
+// SPDX-License-Identifier: MIT
 // Compatible with OpenZeppelin Contracts ^5.0.0
 pragma solidity ^0.8.22;
 
@@ -61,17 +69,21 @@ contract HelloBase {
 	function getGreeting() public view returns (string memory) {
 		return greeting;
 	}
+
 }`}
-				</code>
-			</pre>
-			<Button
-				onClick={deployContract}
-				disabled={!!deployedContract}
-				className="mx-auto mt-12"
-			>
-				<CoinbaseWalletLogo />
-				{isContractPending ? "Deploying..." : "Deploy"}
-			</Button>
+			/>
+			{account.isConnected ? (
+				<Button
+					onClick={deployContract}
+					disabled={!!deployedContract}
+					className="mx-auto mt-12"
+				>
+					<CoinbaseWalletLogo />
+					{isContractPending ? "Deploying..." : "Deploy"}
+				</Button>
+			) : (
+				<p className="text-black">Create your wallet first!</p>
+			)}
 
 			<div className="flex flex-col text-black mt-6">
 				{isConfirming && <div>Waiting for confirmation...</div>}
