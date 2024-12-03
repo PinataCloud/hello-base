@@ -445,6 +445,55 @@ export default function Home() {
 				</div>
 				<ReadGreetingBlock deployedContract={deployedContract} />
 			</section>
+			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">What's Next?</h1>
+					<p>
+						In just a matter of minutes you've deployed a smart contract to
+						Base, wrote data to it, and read it back. Now it's time to start
+						building!
+					</p>
+					<p>
+						Of course you don't have to do this alone. There are so many good
+						resources for how you can take the next steps with Base, so we've
+						decided to link a fiew.
+					</p>
+				</div>
+				<div className="flex-1 flex flex-col w-full gap-4 items-center justify-center">
+					<a
+						className="bg-white text-primary font-bold p-4 rounded-md w-[300px] text-center"
+						href="https://docs.base.org"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Base Documentation
+					</a>
+					<a
+						className="bg-white text-primary font-bold p-4 rounded-md w-[300px] text-center"
+						href="https://www.coinbase.com/wallet"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Get Coinbase Wallet
+					</a>
+					<a
+						className="bg-white text-primary font-bold p-4 rounded-md w-[300px] text-center"
+						href="https://pinata.cloud/blog/how-to-mint-nfts-with-foundry-viem-and-pinata/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Foundational Tools
+					</a>
+					<a
+						className="bg-white text-primary font-bold p-4 rounded-md w-[300px] text-center"
+						href="https://discord.com/invite/buildonbase"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Base Discord
+					</a>
+				</div>
+			</section>
 		</main>
 	);
 }
