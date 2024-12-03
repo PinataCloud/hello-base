@@ -34,9 +34,9 @@ export default function Home() {
 	});
 
 	return (
-		<main className="bg-[#0052FF] text-white min-h-screen font-cbMono flex flex-col gap-6 items-center justify-top">
-			<section className="flex flex-col items-center justify-center w-full h-screen">
-				<h1 className="text-9xl text-center">
+		<main className="bg-[#0052FF] text-white min-h-screen font-cbMono flex flex-col sm:gap-6 gap-36 items-center justify-top">
+			<section className="flex flex-col items-center justify-center w-full min-h-screen">
+				<h1 className="sm:text-9xl text-8xl text-center">
 					HELLO
 					<br />
 					BASE
@@ -53,9 +53,9 @@ export default function Home() {
 					/>{" "}
 				</div>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Welcome!</h1>
+			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">Welcome!</h1>
 					<p>
 						If you're a developer and you've never touched a blockchain or know
 						very little about them, you're in the right place. In just a few
@@ -76,9 +76,11 @@ export default function Home() {
 					/>
 				</div>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">What is a Blockchain?</h1>
+			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">
+						What is a Blockchain?
+					</h1>
 					<p>
 						In short, a blockchain is an immutable digital ledger that lives on
 						multiple computers. They use cryptography to link blocks of
@@ -103,13 +105,13 @@ export default function Home() {
 					<img
 						src="/base_logo.svg"
 						alt="base"
-						className="w-[300px] h-[300px]"
+						className="w-[300px] sm:h-[300px] h-auto"
 					/>
 				</div>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Enter Ethereum</h1>
+			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">Enter Ethereum</h1>
 					<p>
 						Ethereum saw the portnetial of going beyond a simple financial
 						transfer, and built a virtual machine that could run compiled
@@ -138,9 +140,11 @@ export default function Home() {
 					/>
 				</div>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">The Problem with Ethereum</h1>
+			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">
+						The Problem with Ethereum
+					</h1>
 					<p>
 						While Ethereum was an exciting advancement in distributed computers,
 						it had a few problems that have kept it from being adopted by the
@@ -167,9 +171,11 @@ export default function Home() {
 					/>
 				</div>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Rollups as a Solutions</h1>
+			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">
+						Rollups as a Solutions
+					</h1>
 					<p>
 						One solution to Ethereum's problem that has gained a lot of
 						popularity over the past few years are Layer 2 (L2) Blockchains.
@@ -194,9 +200,9 @@ export default function Home() {
 					/>
 				</div>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Introducing Base</h1>
+			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">Introducing Base</h1>
 					<p>
 						<a
 							href="https://base.org"
@@ -233,9 +239,9 @@ export default function Home() {
 					/>
 				</div>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Create a Wallet</h1>
+			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">Create a Wallet</h1>
 					<p>
 						To get started on Base you'll need an account. The easiest way to do
 						that is through a wallet, which is a piece of software that makes it
@@ -243,18 +249,20 @@ export default function Home() {
 					</p>
 					<p>
 						We've simplified the process of making a wallet, so all you have to
-						do is click the button on the right that says "Create Wallet."
-						Everything we'll do is on a testnet so there won't be any real funds
-						being used here. Always test on dev first ;)
+						do is click the button that says "Create Wallet." Everything we'll
+						do is on a testnet so there won't be any real funds being used here.
+						Always test on dev first ;)
 					</p>
 				</div>
-				<div className="bg-white flex-1 flex items-center h-[500px] rounded-md justify-center">
+				<div className="bg-white flex-1 flex items-center h-[500px] sm:w-auto w-[350px] rounded-md justify-center">
 					<CreateWalletButton />
 				</div>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Deploy a Smart Contract</h1>
+			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">
+						Deploy a Smart Contract
+					</h1>
 					<p>
 						You're a developer, so we're gonna speak your language: "Hello
 						World," but in our case "Hello Base" onchain. To the right is a
@@ -276,9 +284,11 @@ export default function Home() {
 					setDeployedContract={setDeployedContract}
 				/>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Write to the Contract</h1>
+			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">
+						Write to the Contract
+					</h1>
 					<p>Congrats!! Your contract is deployed 🎉</p>
 					<p>
 						Now we can interact with it by calling some of the functions. This
@@ -300,9 +310,9 @@ export default function Home() {
 					greetingArg="Hello Base!!"
 				/>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Read Contract</h1>
+			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">Read Contract</h1>
 					<p>
 						Now that you've set the greeting state on the contract, let's read
 						it!
@@ -315,9 +325,9 @@ export default function Home() {
 				</div>
 				<ReadGreetingBlock deployedContract={deployedContract} />
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Offchain Data</h1>
+			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">Offchain Data</h1>
 					<p>Ok we got strings, but what about larger pieces of data?</p>
 					<p>
 						Storing larger pieces of data onchain has proven to be difficult as
@@ -369,9 +379,11 @@ export default function Home() {
 					greetingArg="ipfs://QmVLwvmGehsrNEvhcCnnsw5RQNseohgEkFNN1848zNzdng"
 				/>
 			</section>
-			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
-				<div className="flex flex-col gap-4 flex-1">
-					<h1 className="text-7xl text-start">Reading Offchain Data</h1>
+			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
+				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+					<h1 className="sm:text-7xl text-5xl text-start">
+						Reading Offchain Data
+					</h1>
 					<p>
 						Just like before we'll make a call to the contract to get the
 						greeting.

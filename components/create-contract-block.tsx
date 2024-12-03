@@ -69,7 +69,7 @@ export function CreateContractBlock({
 	}, [isConfirmed, receipt, deployedContract, setDeployedContract]);
 
 	return (
-		<div className="bg-white flex-1 flex flex-col items-center p-4 rounded-md justify-center w-full">
+		<div className="bg-white flex-1 flex flex-col items-center p-4 rounded-md justify-center sm:w-full w-screen overflow-x-scroll">
 			<Code
 				lang="solidity"
 				code={`
@@ -107,7 +107,7 @@ contract HelloBase {
 				<p className="text-black">Create your wallet first!</p>
 			)}
 
-			<div className="flex flex-col text-black mt-6">
+			<div className="flex flex-col text-black mt-6 w-full">
 				{isConfirming && <div>Waiting for confirmation...</div>}
 				{deployedContract && (
 					<p>

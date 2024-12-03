@@ -25,7 +25,7 @@ export default function RootLayout(props: { children: ReactNode }) {
 	);
 	return (
 		<html lang="en">
-			<body className={`${cbSans.variable} hantialiased`}>
+			<body className={`${cbSans.variable} hantialiased bg-primary`}>
 				<Providers initialState={initialState}>{props.children}</Providers>
 			</body>
 		</html>

@@ -28,5 +28,10 @@ export default function Code({
 		highlight();
 	}, [code, lang, theme]);
 
-	return <div dangerouslySetInnerHTML={{ __html: html }}></div>;
+	return (
+		<div
+			className="sm:w-full w-[350px]"
+			dangerouslySetInnerHTML={{ __html: html }}
+		></div>
+	);
 }

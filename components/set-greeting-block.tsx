@@ -64,7 +64,7 @@ export function SetGreetingBlock({
 	}, [isConfirmed, hash, setGreetingTx]);
 
 	return (
-		<div className="bg-white flex-1 flex flex-col items-start p-4 rounded-md justify-center w-full">
+		<div className="bg-white flex-1 flex flex-col items-start p-4 rounded-md justify-center sm:w-full w-screen overflow-x-scroll">
 			<Code
 				lang="ts"
 				code={`
@@ -94,7 +94,7 @@ async function setGreeting() {
 				<p className="text-black mx-auto mt-12">Create your wallet first!</p>
 			)}
 
-			<div className="flex flex-col items-center w-full text-black mt-6">
+			<div className="flex flex-col w-full text-black mt-6">
 				{isConfirming && <div>Waiting for confirmation...</div>}
 				{greetingTx && (
 					<p className="text-center">
