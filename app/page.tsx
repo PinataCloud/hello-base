@@ -1,7 +1,7 @@
 "use client";
 
 import { CreateWalletButton } from "@/components/create-wallet-button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useConnect, useDisconnect } from "wagmi";
 import { CreateContractBlock } from "@/components/create-contract-block";
 import { SetGreetingBlock } from "@/components/set-greeting-block";
@@ -11,27 +11,20 @@ import Image from "next/image";
 export default function Home() {
 	const { connectors, connect, status, error } = useConnect();
 	const { disconnect } = useDisconnect();
+	const [deployedContract, setDeployedContract] = useState("");
+	const [greetingTx, setGreetingTx] = useState("");
+	const [offchainGreetingTx, setOffchainGreetingTx] = useState("");
 
-	const [deployedContract, setDeployedContract] = useState<string>(() => {
-		if (typeof window !== "undefined") {
-			return localStorage.getItem("deployedContract") || "";
-		}
-		return "";
-	});
+	useEffect(() => {
+		const storedContract = localStorage.getItem("deployedContract");
+		if (storedContract) setDeployedContract(storedContract);
 
-	const [greetingTx, setGreetingTx] = useState<string>(() => {
-		if (typeof window !== "undefined") {
-			return localStorage.getItem("greetingTx") || "";
-		}
-		return "";
-	});
+		const storedGreeting = localStorage.getItem("greetingTx");
+		if (storedGreeting) setGreetingTx(storedGreeting);
 
-	const [offchainGreetingTx, setOffchainGreetingTx] = useState<string>(() => {
-		if (typeof window !== "undefined") {
-			return localStorage.getItem("offchainGreetingTx") || "";
-		}
-		return "";
-	});
+		const storedOffchain = localStorage.getItem("offchainGreetingTx");
+		if (storedOffchain) setOffchainGreetingTx(storedOffchain);
+	}, []);
 
 	return (
 		<main className="bg-[#0052FF] text-white min-h-screen font-cbMono flex flex-col sm:gap-6 gap-36 items-center justify-top">
@@ -122,9 +115,9 @@ export default function Home() {
 						<path
 							fill="none"
 							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="1.5"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="1.5"
 							d="M12 17c.227 0 .438-.106.86-.318l3.39-1.704c1.5-.754 2.25-1.131 2.25-1.728v-7.5M12 17c-.227 0-.438-.106-.86-.318l-3.39-1.704c-1.5-.754-2.25-1.131-2.25-1.728v-7.5M12 17V9.5m6.5-3.75c0-.597-.75-.974-2.25-1.728l-3.39-1.704C12.438 2.106 12.227 2 12 2s-.438.106-.86.318L7.75 4.022C6.25 4.776 5.5 5.153 5.5 5.75m13 0c0 .597-.75.974-2.25 1.728l-3.39 1.704c-.422.212-.633.318-.86.318M5.5 5.75c0 .597.75.974 2.25 1.728l3.39 1.704c.422.212.633.318.86.318m-2 11.25c0-.69.56-1.25 1.25-1.25h1.5c.69 0 1.25.56 1.25 1.25m-4 0c0 .69.56 1.25 1.25 1.25h1.5c.69 0 1.25-.56 1.25-1.25m-4 0H5m9 0h5"
 							color="currentColor"
 						/>
@@ -164,9 +157,9 @@ export default function Home() {
 						<path
 							fill="none"
 							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="1.5"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="1.5"
 							d="m19 12l-5.76 2.579c-.611.28-.917.421-1.24.421s-.629-.14-1.24-.421L5 12m14 0c0-.532-.305-1-.917-1.936L14.58 4.696C13.406 2.9 12.82 2 12 2s-1.406.899-2.58 2.696l-3.503 5.368C5.306 11 5 11.468 5 12m14 0c0 .532-.305 1-.917 1.936l-3.503 5.368C13.406 21.1 12.82 22 12 22s-1.406-.899-2.58-2.696l-3.503-5.368C5.306 13 5 12.532 5 12"
 							color="currentColor"
 						/>
@@ -245,9 +238,9 @@ export default function Home() {
 						<g
 							fill="none"
 							stroke="currentColor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="1.5"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="1.5"
 							color="currentColor"
 						>
 							<path d="M5 9.5C5 10.88 7.015 12 9.5 12S14 10.88 14 9.5S11.985 7 9.5 7S5 8.12 5 9.5" />
