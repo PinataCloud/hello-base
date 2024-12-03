@@ -6,6 +6,7 @@ import { useConnect, useDisconnect } from "wagmi";
 import { CreateContractBlock } from "@/components/create-contract-block";
 import { SetGreetingBlock } from "@/components/set-greeting-block";
 import { ReadGreetingBlock } from "@/components/read-greeting-block";
+import Image from "next/image";
 
 export default function Home() {
 	const { connectors, connect, status, error } = useConnect();
@@ -41,7 +42,16 @@ export default function Home() {
 					BASE
 				</h1>
 				<img src="/base_logo.svg" alt="base logo" className="w-[200px]" />
-				<p className="mt-24 text-2xl">Coming soon</p>
+				<div className="flex flex-row  gap-4 items-center justify-center mt-24">
+					<p className="text-2xl">by</p>
+					<Image
+						src="/pinata_logo.png"
+						alt="pinata logo"
+						height={800}
+						width={800}
+						className="w-[130px]"
+					/>{" "}
+				</div>
 			</section>
 			<section className="flex flex-row items-center justify-between gap-6 max-w-screen-xl h-screen">
 				<div className="flex flex-col gap-4 flex-1">

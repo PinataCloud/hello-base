@@ -9,8 +9,9 @@ import {
 import { Button } from "./ui/button";
 import { CoinbaseWalletLogo } from "./coinbase-wallet-logo";
 import { truncate } from "@/lib/utils";
-import { codeToHtml } from "shiki";
 import Code from "./code";
+import { decodeEventLog } from "viem";
+import { useEffect } from "react";
 
 export function CreateContractBlock({
 	deployedContract,
@@ -45,6 +46,27 @@ export function CreateContractBlock({
 	} = useWaitForTransactionReceipt({
 		hash,
 	});
+
+	if (receipt) {
+		console.log(receipt.logs);
+	}
+
+	useEffect(() => {
+		if (isConfirmed && receipt?.logs[1].data && !deployedContract) {
+			try {
+				const decodedLog = decodeEventLog({
+					abi: factory.abi,
+					data: receipt.logs[1].data,
+					topics: receipt.logs[1].topics,
+				}) as unknown as { args: { cloneAddress: string } };
+				const contractAddress = decodedLog.args.cloneAddress;
+				setDeployedContract(contractAddress);
+				localStorage.setItem("deployedContract", contractAddress);
+			} catch (error) {
+				console.error("Error decoding log:", error);
+			}
+		}
+	}, [isConfirmed, receipt, deployedContract, setDeployedContract]);
 
 	return (
 		<div className="bg-white flex-1 flex flex-col items-center p-4 rounded-md justify-center w-full">
@@ -87,19 +109,6 @@ contract HelloBase {
 
 			<div className="flex flex-col text-black mt-6">
 				{isConfirming && <div>Waiting for confirmation...</div>}
-				{isConfirmed && !deployedContract && (
-					<div>
-						{receipt.logs[1].data &&
-							(() => {
-								const contractAddress = `0x${receipt.logs[1].data.slice(26)}`;
-								// Store in state
-								setDeployedContract(contractAddress);
-								// Store in localStorage
-								localStorage.setItem("deployedContract", contractAddress);
-								return "";
-							})()}
-					</div>
-				)}
 				{deployedContract && (
 					<p>
 						Contract:{" "}

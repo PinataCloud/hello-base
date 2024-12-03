@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 import { CoinbaseWalletLogo } from "./coinbase-wallet-logo";
 import { truncate } from "@/lib/utils";
 import Code from "./code";
+import { useEffect } from "react";
 
 interface SetGreetingBlockProps {
 	deployedContract: string;
@@ -55,6 +56,13 @@ export function SetGreetingBlock({
 		hash,
 	});
 
+	useEffect(() => {
+		if (isConfirmed && hash) {
+			setGreetingTx(hash);
+			localStorage.setItem("greetingTx", hash);
+		}
+	}, [isConfirmed, hash, setGreetingTx]);
+
 	return (
 		<div className="bg-white flex-1 flex flex-col items-start p-4 rounded-md justify-center w-full">
 			<Code
@@ -88,18 +96,6 @@ async function setGreeting() {
 
 			<div className="flex flex-col items-center w-full text-black mt-6">
 				{isConfirming && <div>Waiting for confirmation...</div>}
-				{isConfirmed && deployedContract && (
-					<div>
-						{hash &&
-							(() => {
-								// Store in state
-								setGreetingTx(hash);
-								// Store in localStorage
-								localStorage.setItem("greetingTx", hash);
-								return "";
-							})()}
-					</div>
-				)}
 				{greetingTx && (
 					<p className="text-center">
 						Tx:{" "}
