@@ -32,6 +32,70 @@ sequenceDiagram
     Contract-->>User: Return new greeting
 ```
 
+1. **Flowchart** (for general process flows):
+```mermaid
+flowchart TD
+    A[User] --> B[Create Wallet]
+    B --> C[Deploy Contract]
+    C --> D[Set Initial Greeting]
+    D --> E[Read Greeting]
+    E --> F[Set New Greeting]
+    F --> G[Read New Greeting]
+```
+
+2. **State Diagram** (for showing state transitions):
+```mermaid
+stateDiagram-v2
+    [*] --> WalletCreation
+    WalletCreation --> ContractDeployment
+    ContractDeployment --> InitialGreeting
+    InitialGreeting --> ReadGreeting
+    ReadGreeting --> UpdateGreeting
+    UpdateGreeting --> ReadGreeting
+    ReadGreeting --> [*]
+```
+
+3. **Class Diagram** (for showing contract structure):
+```mermaid
+classDiagram
+    class ContractFactory {
+        +deployContract()
+    }
+    class GreetingContract {
+        +string greeting
+        +setGreeting()
+        +getGreeting()
+    }
+    ContractFactory --> GreetingContract
+```
+
+4. **Entity Relationship Diagram** (for showing relationships):
+```mermaid
+erDiagram
+    USER ||--o{ WALLET : creates
+    USER ||--o{ CONTRACT : deploys
+    WALLET ||--o{ CONTRACT : interacts
+    CONTRACT {
+        string greeting
+        function setGreeting
+        function getGreeting
+    }
+```
+
+5. **Gantt Chart** (for project timeline visualization):
+```mermaid
+gantt
+    title HelloBase Interaction Flow
+    dateFormat  s
+    axisFormat %S
+    Create Wallet      :a1, 0, 2s
+    Deploy Contract    :a2, after a1, 3s
+    Set Initial Greeting :a3, after a2, 2s
+    Read Greeting      :a4, after a3, 1s
+    Update Greeting    :a5, after a4, 2s
+```
+
+
 ## Development
 
 First clone the repo and install dependencies
