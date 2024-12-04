@@ -2,7 +2,7 @@
 
 ![og](./public/og.png)
 
-This is the official repo for HelloBase.dev, a starting place for any developer who is interested in building onchain.
+This is the official repo for [HelloBase](https://hellobase.dev), a starting place for any developer who is interested in building onchain.
 
 The app is composed of two pieces:
 
