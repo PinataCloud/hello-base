@@ -89,7 +89,7 @@ export default function Home() {
 					<p>
 						In short, a blockchain is an immutable digital ledger that lives on
 						multiple computers. They use cryptography to link blocks of
-						transactions tegether to form a history. They differ in form, but
+						transactions together to form a history. They differ in form, but
 						all blockchains have a consensus mechanism to make sure all the
 						nodes (aka computers) are on the same page and keep the same
 						history.
@@ -129,14 +129,14 @@ export default function Home() {
 				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Enter Ethereum</h1>
 					<p>
-						Ethereum saw the portnetial of going beyond a simple financial
-						transfer, and built a virtual machine that could run compiled
+						Ethereum saw the potential of going beyond a simple financial
+						transfer and built a virtual machine that could run compiled
 						byte-code. The Ethereum Virtual Machine was born, or "EVM" for
 						short. Programs are built by writing smart contracts in Solidity
 						that dictate what the code does on the EVM.
 					</p>
 					<p>
-						Once a program or smart contract is deployed it can be interated
+						Once a program or smart contract is deployed it can be interacted
 						with by other accounts on the network, either user accounts
 						(Externally Owned Accounts) or other smart contract accounts.
 						Interactions with these programs are still recorded as transactions
@@ -175,7 +175,7 @@ export default function Home() {
 					<p>
 						While Ethereum was an exciting advancement in distributed computers,
 						it had a few problems that have kept it from being adopted by the
-						masses. As it grew so did it's cryptogrpahic operations, and this
+						masses. As it grew so did it's cryptographic operations, and this
 						caused a scaling issue.
 					</p>
 					<p>
@@ -214,13 +214,13 @@ export default function Home() {
 						Rollups as a Solution
 					</h1>
 					<p>
-						One solution to Ethereum's problem that has gained a lot of
-						popularity over the past few years are Layer 2 (L2) Blockchains.
-						These are blockchains that process transactions with nodes just like
-						Ethereum, except when it comes to settling the transaction, these
-						chains will roll up a bunch of transactions and batch process them
-						on Ethereum (the Layer 1 chain). By doing this the experience on the
-						L2 is much faster and cheaper than using raw Ethereum.
+						Layer 2 (L2) blockchains have emerged as a popular solution to
+						Ethereum's scaling challenges. These networks process transactions
+						independently using their own nodes, but instead of settling each
+						transaction individually on Ethereum (Layer 1), they bundle multiple
+						transactions together and process them as a single batch. This
+						batching approach makes L2 transactions significantly faster and
+						more cost-effective than direct Ethereum transactions.
 					</p>
 					<p>
 						Another large benefit to these rollups is they stay EVM compatible,
@@ -273,11 +273,11 @@ export default function Home() {
 						</a>
 						, and aims to bring the world onchain. It provides fast and cheap
 						transactions, almost all of them being under $0.01. Base is open
-						sourced, trusted, and has become one of the most popular blockhains
+						sourced, trusted, and has become one of the most popular blockchains
 						to date.
 					</p>
 					<p>
-						Now that you have some fundemental understandings around blockchains
+						Now that you have some fundamental understandings around blockchains
 						and Base, let's have you start cooking right away!
 					</p>
 				</div>
@@ -398,7 +398,7 @@ export default function Home() {
 						>
 							IPFS
 						</a>
-						, a distribured immutable file sharing protocol.
+						, a distributed immutable file sharing protocol.
 					</p>
 					<p>
 						You can learn more about IPFS{" "}
@@ -457,7 +457,7 @@ export default function Home() {
 					<p>
 						Of course you don't have to do this alone. There are so many good
 						resources for how you can take the next steps with Base, so we've
-						decided to link a fiew.
+						decided to link a few.
 					</p>
 				</div>
 				<div className="flex-1 flex flex-col w-full gap-4 items-center justify-center">
