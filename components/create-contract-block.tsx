@@ -25,6 +25,7 @@ export function CreateContractBlock({
 		data: hash,
 		isPending: isContractPending,
 		writeContract,
+		error: contractError,
 	} = useWriteContract();
 
 	async function deployContract() {
@@ -43,6 +44,7 @@ export function CreateContractBlock({
 		data: receipt,
 		isLoading: isConfirming,
 		isSuccess: isConfirmed,
+		error: transactionReceiptError,
 	} = useWaitForTransactionReceipt({
 		hash,
 	});
@@ -51,17 +53,34 @@ export function CreateContractBlock({
 		console.log(receipt.logs);
 	}
 
+	if (contractError) {
+		console.log("problem creating contract: ", contractError);
+	}
+
+	if (transactionReceiptError) {
+		console.log("Problem waiting for tx: ", transactionReceiptError);
+	}
+
 	useEffect(() => {
 		if (isConfirmed && receipt?.logs[1].data && !deployedContract) {
 			try {
-				const decodedLog = decodeEventLog({
-					abi: factory.abi,
-					data: receipt.logs[1].data,
-					topics: receipt.logs[1].topics,
-				}) as unknown as { args: { cloneAddress: string } };
-				const contractAddress = decodedLog.args.cloneAddress;
-				setDeployedContract(contractAddress);
-				localStorage.setItem("deployedContract", contractAddress);
+				const factoryLog = receipt.logs.find(
+					(log) =>
+						log.address.toLowerCase() ===
+						process.env.NEXT_PUBLIC_FACTORY_ADDRESS?.toLowerCase(),
+				);
+
+				if (factoryLog) {
+					const decodedLog = decodeEventLog({
+						abi: factory.abi,
+						data: factoryLog.data,
+						topics: factoryLog.topics,
+					}) as unknown as { args: { cloneAddress: string } };
+
+					const contractAddress = decodedLog.args.cloneAddress;
+					setDeployedContract(contractAddress);
+					localStorage.setItem("deployedContract", contractAddress);
+				}
 			} catch (error) {
 				console.error("Error decoding log:", error);
 			}
