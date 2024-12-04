@@ -6,6 +6,7 @@ import { cookieToInitialState } from "wagmi";
 import { headers } from "next/headers";
 import { getConfig } from "@/wagmi";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const cbSans = localFont({
 	src: "./fonts/Coinbase_Mono-Regular-web.woff2",
@@ -47,7 +48,10 @@ export default function RootLayout(props: { children: ReactNode }) {
 	return (
 		<html suppressHydrationWarning lang="en">
 			<body className={`${cbSans.variable} hantialiased bg-primary`}>
-				<Providers initialState={initialState}>{props.children}</Providers>
+				<Providers initialState={initialState}>
+					{props.children}
+					<Analytics />
+				</Providers>
 			</body>
 		</html>
 	);
