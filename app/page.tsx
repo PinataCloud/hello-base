@@ -487,7 +487,7 @@ export default function Home() {
 					deployedContract={deployedContract}
 					greetingTx={offchainGreetingTx}
 					setGreetingTx={setOffchainGreetingTx}
-					greetingArg="ipfs://QmVLwvmGehsrNEvhcCnnsw5RQNseohgEkFNN1848zNzdng"
+					greetingArg="ipfs://QmfD378kaDTmA4gNq45WVCEHQpGpFg2FsukvewZfjNwMLi"
 				/>
 			</section>
 			<section
