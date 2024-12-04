@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { CreateContractBlock } from "@/components/create-contract-block";
 import { SetGreetingBlock } from "@/components/set-greeting-block";
 import { ReadGreetingBlock } from "@/components/read-greeting-block";
+import { TableOfContents } from "@/components/table-of-contents";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { links } from "@/lib/links";
@@ -13,6 +14,7 @@ export default function Home() {
 	const [deployedContract, setDeployedContract] = useState("");
 	const [greetingTx, setGreetingTx] = useState("");
 	const [offchainGreetingTx, setOffchainGreetingTx] = useState("");
+	const [showArrow, setShowArrow] = useState(false);
 
 	useEffect(() => {
 		const storedContract = localStorage.getItem("deployedContract");
@@ -23,11 +25,21 @@ export default function Home() {
 
 		const storedOffchain = localStorage.getItem("offchainGreetingTx");
 		if (storedOffchain) setOffchainGreetingTx(storedOffchain);
+
+		const timer = setTimeout(() => {
+			setShowArrow(true);
+		}, 1000);
+
+		return () => clearTimeout(timer);
 	}, []);
 
 	return (
-		<main className="bg-[#0052FF] text-white min-h-screen font-cbMono flex flex-col sm:gap-6 gap-36 items-center justify-top">
-			<section className="flex flex-col items-center justify-center w-full gap-4 min-h-screen">
+		<main className="bg-[#0052FF] text-white min-h-screen font-cbMono flex flex-col sm:gap-6 gap-36 items-center justify-top ">
+			<TableOfContents />
+			<section
+				id="landing"
+				className="flex flex-col items-center justify-center w-full gap-4 min-h-screen"
+			>
 				<h1 className="sm:text-9xl text-8xl text-center">
 					HELLO
 					<br />
@@ -49,9 +61,30 @@ export default function Home() {
 						className="w-[130px]"
 					/>{" "}
 				</a>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					className={`w-[100px] h-[100px] transition-opacity duration-1000 ${
+						showArrow ? "opacity-100" : "opacity-0"
+					}`}
+				>
+					<title>Down</title>
+					<path
+						fill="none"
+						stroke="currentColor"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						strokeWidth="1.5"
+						d="M12 20V4m5 11s-3.682 5-5 5s-5-5-5-5"
+						color="currentColor"
+					/>
+				</svg>
 			</section>
-			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="welcome"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Welcome!</h1>
 					<p>
 						If you're a developer and you've never touched a blockchain or know
@@ -79,8 +112,11 @@ export default function Home() {
 					</svg>
 				</div>
 			</section>
-			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="what-is-a-blockchain"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
 						What is a Blockchain?
 					</h1>
@@ -123,8 +159,11 @@ export default function Home() {
 					</svg>
 				</div>
 			</section>
-			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="enter-ethereum"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Enter Ethereum</h1>
 					<p>
 						Ethereum saw the potential of going beyond a simple financial
@@ -165,8 +204,11 @@ export default function Home() {
 					</svg>
 				</div>
 			</section>
-			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="the-problem-with-ethereum"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
 						The Problem with Ethereum
 					</h1>
@@ -206,8 +248,11 @@ export default function Home() {
 					</svg>
 				</div>
 			</section>
-			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="rollups-as-a-solution"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
 						Rollups as a Solution
 					</h1>
@@ -248,8 +293,11 @@ export default function Home() {
 					</svg>
 				</div>
 			</section>
-			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="introducing-base"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Introducing Base</h1>
 					<p>
 						<a
@@ -276,7 +324,7 @@ export default function Home() {
 					</p>
 					<p>
 						Now that you have some fundamental understandings around blockchains
-						and Base, let's have you start cooking right away!
+						and Base, let's cook.
 					</p>
 				</div>
 				<div className="flex-1 flex items-center justify-center">
@@ -287,8 +335,11 @@ export default function Home() {
 					/>
 				</div>
 			</section>
-			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="create-a-wallet"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Create a Wallet</h1>
 					<p>
 						To get started on Base you'll need an account. The easiest way to do
@@ -302,12 +353,15 @@ export default function Home() {
 						Always test on dev first ;)
 					</p>
 				</div>
-				<div className="bg-white flex-1 flex items-center h-[500px] sm:w-auto w-[350px] rounded-md justify-center">
+				<div className="bg-white flex-1 flex items-center h-[500px] lg:w-auto w-[350px] rounded-md justify-center">
 					<CreateWalletButton />
 				</div>
 			</section>
-			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="deploy-a-smart-contract"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
 						Deploy a Smart Contract
 					</h1>
@@ -332,8 +386,11 @@ export default function Home() {
 					setDeployedContract={setDeployedContract}
 				/>
 			</section>
-			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="write-to-the-contract"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
 						Write to the Contract
 					</h1>
@@ -358,8 +415,11 @@ export default function Home() {
 					greetingArg="Hello Base!!"
 				/>
 			</section>
-			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="read-contract"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Read Contract</h1>
 					<p>
 						Now that you've set the greeting state on the contract, let's read
@@ -373,8 +433,11 @@ export default function Home() {
 				</div>
 				<ReadGreetingBlock deployedContract={deployedContract} />
 			</section>
-			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="offchain-data"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Offchain Data</h1>
 					<p>Ok we got strings, but what about larger pieces of data?</p>
 					<p>
@@ -427,8 +490,11 @@ export default function Home() {
 					greetingArg="ipfs://QmVLwvmGehsrNEvhcCnnsw5RQNseohgEkFNN1848zNzdng"
 				/>
 			</section>
-			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="reading-offchain-data"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
 						Reading Offchain Data
 					</h1>
@@ -444,8 +510,11 @@ export default function Home() {
 				</div>
 				<ReadGreetingBlock deployedContract={deployedContract} />
 			</section>
-			<section className="flex sm:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen">
-				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
+			<section
+				id="whats-next"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+			>
+				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">What's Next?</h1>
 					<p>
 						In just a matter of minutes you've deployed a smart contract to
@@ -478,7 +547,10 @@ export default function Home() {
 					))}
 				</div>
 			</section>
-			<section className="flex flex-col items-center justify-center w-full gap-4 min-h-screen max-w-2xl sm:px-auto px-4">
+			<section
+				id="go-build"
+				className="flex flex-col items-center justify-center w-full gap-4 min-h-screen max-w-2xl sm:px-auto px-4"
+			>
 				<h1 className="sm:text-9xl text-8xl text-center">GO BUILD</h1>
 				<p>
 					Thank you for taking the time to visit HelloBase! We hope you found it
