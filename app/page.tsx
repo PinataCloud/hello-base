@@ -82,7 +82,7 @@ export default function Home() {
 			</section>
 			<section
 				id="welcome"
-				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Welcome!</h1>
@@ -114,7 +114,7 @@ export default function Home() {
 			</section>
 			<section
 				id="what-is-a-blockchain"
-				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
@@ -161,7 +161,7 @@ export default function Home() {
 			</section>
 			<section
 				id="enter-ethereum"
-				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Enter Ethereum</h1>
@@ -206,7 +206,7 @@ export default function Home() {
 			</section>
 			<section
 				id="the-problem-with-ethereum"
-				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
@@ -250,7 +250,7 @@ export default function Home() {
 			</section>
 			<section
 				id="rollups-as-a-solution"
-				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
@@ -295,7 +295,7 @@ export default function Home() {
 			</section>
 			<section
 				id="introducing-base"
-				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Introducing Base</h1>
@@ -337,7 +337,7 @@ export default function Home() {
 			</section>
 			<section
 				id="create-a-wallet"
-				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Create a Wallet</h1>
@@ -359,7 +359,7 @@ export default function Home() {
 			</section>
 			<section
 				id="deploy-a-smart-contract"
-				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
@@ -388,7 +388,7 @@ export default function Home() {
 			</section>
 			<section
 				id="write-to-the-contract"
-				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
@@ -417,7 +417,7 @@ export default function Home() {
 			</section>
 			<section
 				id="read-contract"
-				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Read Contract</h1>
@@ -435,7 +435,7 @@ export default function Home() {
 			</section>
 			<section
 				id="offchain-data"
-				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">Offchain Data</h1>
@@ -492,7 +492,7 @@ export default function Home() {
 			</section>
 			<section
 				id="reading-offchain-data"
-				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
@@ -512,7 +512,7 @@ export default function Home() {
 			</section>
 			<section
 				id="whats-next"
-				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[220px] max-[1024px]:pr-0"
+				className="flex lg:flex-row flex-col items-center justify-between gap-6 max-w-screen-xl min-h-screen pr-0 max-[2000px]:pr-[100px] max-[1024px]:pr-0"
 			>
 				<div className="flex flex-col gap-4 flex-1 lg:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">What's Next?</h1>
