@@ -9,16 +9,21 @@ export function CreateWalletButton() {
 	const { connectors, connect, data } = useConnect();
 	const account = useAccount();
 
-	const createWallet = useCallback(() => {
-		const coinbaseWalletConnector = connectors.find(
-			(connector) => connector.id === "coinbaseWalletSDK",
-		);
-		if (coinbaseWalletConnector) {
-			connect({ connector: coinbaseWalletConnector });
+	const handleClick = useCallback(() => {
+		if (account.isConnected) {
+			window.open("https://wallet.coinbase.com", "_blank");
+		} else {
+			const coinbaseWalletConnector = connectors.find(
+				(connector) => connector.id === "coinbaseWalletSDK",
+			);
+			if (coinbaseWalletConnector) {
+				connect({ connector: coinbaseWalletConnector });
+			}
 		}
-	}, [connectors, connect]);
+	}, [connectors, connect, account.isConnected]);
+
 	return (
-		<Button type="button" onClick={createWallet} className="text-white">
+		<Button type="button" onClick={handleClick} className="text-white">
 			<CoinbaseWalletLogo />
 			{account.isConnected ? "Connected!" : "Create Wallet"}
 		</Button>
