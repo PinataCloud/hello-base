@@ -54,3 +54,9 @@ Spin up the dev server
 ```
 npm run dev
 ```
+
+## Contact
+
+Feel free to reach out if you have any questions!
+
+[steve@pinata.cloud](mailto:steve@pinata.cloud)
