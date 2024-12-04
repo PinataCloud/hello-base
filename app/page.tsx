@@ -8,6 +8,7 @@ import { SetGreetingBlock } from "@/components/set-greeting-block";
 import { ReadGreetingBlock } from "@/components/read-greeting-block";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { links } from "@/lib/links";
 
 export default function Home() {
 	const { connectors, connect, status, error } = useConnect();
@@ -461,46 +462,23 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="flex-1 flex flex-col w-full gap-4 items-center justify-center">
-					<Button className="w-[300px] p-4" variant="secondary" asChild>
-						<a
-							className="text-center"
-							href="https://docs.base.org"
-							target="_blank"
-							rel="noreferrer"
+					{links.map((item) => (
+						<Button
+							key={item.name}
+							className="w-[300px] p-4"
+							variant="secondary"
+							asChild
 						>
-							Base Documentation
-						</a>
-					</Button>
-					<Button className="w-[300px] p-4" variant="secondary" asChild>
-						<a
-							className="text-center"
-							href="https://www.coinbase.com/wallet"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Get Coinbase Wallet
-						</a>
-					</Button>
-					<Button className="w-[300px] p-4" variant="secondary" asChild>
-						<a
-							className="text-center"
-							href="https://pinata.cloud/blog/how-to-mint-nfts-with-foundry-viem-and-pinata/"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Foundational Tools
-						</a>
-					</Button>
-					<Button className="w-[300px] p-4" variant="secondary" asChild>
-						<a
-							className="text-center"
-							href="https://discord.com/invite/buildonbase"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Base Discord
-						</a>
-					</Button>
+							<a
+								className="text-center"
+								href={item.url}
+								target="_blank"
+								rel="noreferrer"
+							>
+								{item.name}
+							</a>
+						</Button>
+					))}
 				</div>
 			</section>
 		</main>
