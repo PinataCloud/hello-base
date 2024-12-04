@@ -2,7 +2,6 @@
 
 import { CreateWalletButton } from "@/components/create-wallet-button";
 import { useEffect, useState } from "react";
-import { useConnect, useDisconnect } from "wagmi";
 import { CreateContractBlock } from "@/components/create-contract-block";
 import { SetGreetingBlock } from "@/components/set-greeting-block";
 import { ReadGreetingBlock } from "@/components/read-greeting-block";
@@ -11,8 +10,6 @@ import { Button } from "@/components/ui/button";
 import { links } from "@/lib/links";
 
 export default function Home() {
-	const { connectors, connect, status, error } = useConnect();
-	const { disconnect } = useDisconnect();
 	const [deployedContract, setDeployedContract] = useState("");
 	const [greetingTx, setGreetingTx] = useState("");
 	const [offchainGreetingTx, setOffchainGreetingTx] = useState("");
@@ -316,8 +313,8 @@ export default function Home() {
 					</h1>
 					<p>
 						You're a developer, so we're gonna speak your language: "Hello
-						World," but in our case "Hello Base" onchain. To the right is a
-						simple smart contract where we have the following:
+						World," but in our case "Hello Base" onchain. In this simple smart
+						contract we have the following:
 					</p>
 					<ul className="list-disc pl-4">
 						<li>A state variable to hold our greeting</li>
