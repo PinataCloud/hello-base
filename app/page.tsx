@@ -7,6 +7,7 @@ import { CreateContractBlock } from "@/components/create-contract-block";
 import { SetGreetingBlock } from "@/components/set-greeting-block";
 import { ReadGreetingBlock } from "@/components/read-greeting-block";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
 	const { connectors, connect, status, error } = useConnect();
@@ -101,8 +102,8 @@ export default function Home() {
 					</p>
 					<p>
 						Bitcoin is perhaps the most popular blockchain example, where
-						transactions are simply transfers of the digitial currency from one
-						account to another.
+						transaction blocks are simply transfers of the digitial currency
+						from one account to another.
 					</p>
 				</div>
 				<div className="flex-1 flex items-center justify-center">
@@ -210,7 +211,7 @@ export default function Home() {
 			<section className="flex sm:flex-row flex-col-reverse items-center justify-between gap-6 max-w-screen-xl min-h-screen">
 				<div className="flex flex-col gap-4 flex-1 sm:mx-auto mx-4">
 					<h1 className="sm:text-7xl text-5xl text-start">
-						Rollups as a Solutions
+						Rollups as a Solution
 					</h1>
 					<p>
 						One solution to Ethereum's problem that has gained a lot of
@@ -460,38 +461,46 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="flex-1 flex flex-col w-full gap-4 items-center justify-center">
-					<a
-						className="bg-white text-primary font-bold p-4 rounded-md w-[300px] text-center"
-						href="https://docs.base.org"
-						target="_blank"
-						rel="noreferrer"
-					>
-						Base Documentation
-					</a>
-					<a
-						className="bg-white text-primary font-bold p-4 rounded-md w-[300px] text-center"
-						href="https://www.coinbase.com/wallet"
-						target="_blank"
-						rel="noreferrer"
-					>
-						Get Coinbase Wallet
-					</a>
-					<a
-						className="bg-white text-primary font-bold p-4 rounded-md w-[300px] text-center"
-						href="https://pinata.cloud/blog/how-to-mint-nfts-with-foundry-viem-and-pinata/"
-						target="_blank"
-						rel="noreferrer"
-					>
-						Foundational Tools
-					</a>
-					<a
-						className="bg-white text-primary font-bold p-4 rounded-md w-[300px] text-center"
-						href="https://discord.com/invite/buildonbase"
-						target="_blank"
-						rel="noreferrer"
-					>
-						Base Discord
-					</a>
+					<Button className="w-[300px] p-4" variant="secondary" asChild>
+						<a
+							className="text-center"
+							href="https://docs.base.org"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Base Documentation
+						</a>
+					</Button>
+					<Button className="w-[300px] p-4" variant="secondary" asChild>
+						<a
+							className="text-center"
+							href="https://www.coinbase.com/wallet"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Get Coinbase Wallet
+						</a>
+					</Button>
+					<Button className="w-[300px] p-4" variant="secondary" asChild>
+						<a
+							className="text-center"
+							href="https://pinata.cloud/blog/how-to-mint-nfts-with-foundry-viem-and-pinata/"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Foundational Tools
+						</a>
+					</Button>
+					<Button className="w-[300px] p-4" variant="secondary" asChild>
+						<a
+							className="text-center"
+							href="https://discord.com/invite/buildonbase"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Base Discord
+						</a>
+					</Button>
 				</div>
 			</section>
 		</main>
