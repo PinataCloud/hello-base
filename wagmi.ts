@@ -7,7 +7,11 @@ export function getConfig() {
 		ssr: true,
 		chains: [baseSepolia],
 		connectors: [
-			coinbaseWallet({ appName: "HelloBase", preference: "smartWalletOnly" }),
+			coinbaseWallet({
+				appName: "HelloBase",
+				preference: "smartWalletOnly",
+				appLogoUrl: `${process.env.NEXT_PUBLIC_URL}/logo.png`,
+			}),
 		],
 		transports: {
 			[baseSepolia.id]: http(),

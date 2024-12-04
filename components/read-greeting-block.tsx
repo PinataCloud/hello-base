@@ -53,7 +53,7 @@ const { data, isLoading, status } = useReadContract({
 			) : (
 				<p className="text-black mx-auto mt-12">Create your wallet first!</p>
 			)}
-			<div className="flex flex-col items-center text-black mt-6 w-full mx-auto">
+			<div className="flex flex-col text-black mt-6 w-full mx-auto">
 				{!isLoading && greeting && <p>Greeting: {greeting}</p>}
 				{greeting?.startsWith("ipfs") && (
 					<a

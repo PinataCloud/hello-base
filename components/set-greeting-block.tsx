@@ -94,7 +94,7 @@ async function setGreeting() {
 				<p className="text-black mx-auto mt-12">Create your wallet first!</p>
 			)}
 
-			<div className="flex flex-col w-full text-black mt-6">
+			<div className="flex flex-col w-full text-black mt-6 mx-auto">
 				{isConfirming && <div>Waiting for confirmation...</div>}
 				{greetingTx && (
 					<p className="text-center">

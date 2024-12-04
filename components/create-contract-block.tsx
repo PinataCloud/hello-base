@@ -107,7 +107,7 @@ contract HelloBase {
 				<p className="text-black">Create your wallet first!</p>
 			)}
 
-			<div className="flex flex-col items-center text-black mt-6 w-full mx-auto">
+			<div className="flex flex-col text-black mt-6 w-full mx-auto">
 				{isConfirming && <div>Waiting for confirmation...</div>}
 				{deployedContract && (
 					<p>
