@@ -69,7 +69,7 @@ export function CreateContractBlock({
 	}, [isConfirmed, receipt, deployedContract, setDeployedContract]);
 
 	return (
-		<div className="bg-white flex-1 flex flex-col items-center p-4 rounded-md justify-center sm:w-full w-screen overflow-x-scroll">
+		<div className="bg-white flex-1 flex flex-col items-start p-4 rounded-md justify-center sm:w-full w-screen overflow-x-scroll">
 			<Code
 				lang="solidity"
 				code={`

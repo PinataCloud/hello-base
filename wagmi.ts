@@ -10,7 +10,7 @@ export function getConfig() {
 			coinbaseWallet({
 				appName: "HelloBase",
 				preference: "smartWalletOnly",
-				appLogoUrl: `${process.env.NEXT_PUBLIC_URL}/logo.png`,
+				appLogoUrl: `${process.env.NEXT_PUBLIC_URL}/icon.png`,
 			}),
 		],
 		transports: {
