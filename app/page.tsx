@@ -328,7 +328,9 @@ export default function Home() {
 					</p>
 				</div>
 				<div className="flex-1 flex items-center justify-center">
-					<img
+					<Image
+						width={800}
+						height={800}
 						src="/base_logo.svg"
 						alt="base"
 						className="w-[300px] h-[300px]"
