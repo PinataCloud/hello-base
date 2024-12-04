@@ -553,7 +553,7 @@ export default function Home() {
 				id="go-build"
 				className="flex flex-col items-center justify-center w-full gap-4 min-h-screen max-w-2xl sm:px-auto px-4"
 			>
-				<h1 className="sm:text-9xl text-8xl text-center">GO BUILD</h1>
+				<h1 className="sm:text-9xl text-8xl text-center mb-12">GO BUILD</h1>
 				<p>
 					Thank you for taking the time to visit HelloBase! We hope you found it
 					helpful to kickstart your journey to building on Base.
@@ -571,7 +571,7 @@ export default function Home() {
 					</a>
 				</p>
 				<a
-					className="flex flex-row  gap-4 items-center justify-center mt-4"
+					className="flex flex-row  gap-4 items-center justify-center mt-12"
 					href="https://pinata.cloud"
 					target="_blank"
 					rel="noreferrer"
