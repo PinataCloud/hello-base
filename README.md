@@ -23,11 +23,11 @@ sequenceDiagram
     ContractFactory-->>Contract: Create new instance
     ContractFactory-->>User: Return contract address
     User->>Contract: Set initial greeting
-    Contract-->>User: Confirm transaction
+    Contract-->>Wallet: Confirm transaction
     User->>Contract: Read greeting
     Contract-->>User: Return greeting
     User->>Contract: Set new greeting
-    Contract-->>User: Confirm transaction
+    Contract-->>Wallet: Confirm transaction
     User->>Contract: Read greeting again
     Contract-->>User: Return new greeting
 ```
