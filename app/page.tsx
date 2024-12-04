@@ -481,6 +481,39 @@ export default function Home() {
 					))}
 				</div>
 			</section>
+			<section className="flex flex-col items-center justify-center w-full gap-4 min-h-screen max-w-2xl">
+				<h1 className="sm:text-9xl text-8xl text-center">GO BUILD</h1>
+				<p>
+					Thank you for taking the time to visit HelloBase! We hope you found it
+					helpful to kickstart your journey to building on Base.
+				</p>
+				<p>
+					If you're interested in how this site was built or if you'd like to
+					contribute, please check out the{" "}
+					<a
+						href="https://github.com/PinataCloud/hello-base"
+						className="underline font-bold"
+						target="_blank"
+						rel="noreferrer"
+					>
+						GitHub repository
+					</a>
+				</p>
+				<a
+					className="flex flex-row  gap-4 items-center justify-center mt-4"
+					href="https://pinata.cloud"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<Image
+						src="/pinata_logo.png"
+						alt="pinata logo"
+						height={800}
+						width={800}
+						className="w-[130px]"
+					/>{" "}
+				</a>
+			</section>
 		</main>
 	);
 }
