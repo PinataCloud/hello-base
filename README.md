@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## HelloBase
 
-## Getting Started
+![og](./public/og.png)
 
-First, run the development server:
+This is the official repo for HelloBase.dev, a starting place for any developer who is interested in building onchain.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The app is composed of two pieces:
+
+- Next.js client
+- [Smart Contracts on Base Sepolia](https://github.com/PinataCloud/hello-base-contracts)
+
+This repo contains the code for the Next.js client and uses a combination of [Wagmi.sh](https://wagmi.sh) and [Coinbase Smart Wallets](https://www.coinbase.com/wallet/smart-wallet) to provide a seemless experience for anyone to start building onchain. Below is a flow chart for the user experience and what happens behind the scenes.
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Wallet
+    participant ContractFactory
+    participant Contract
+
+    User->>Wallet: Create Wallet
+    User->>ContractFactory: Deploy Contract
+    ContractFactory-->>Contract: Create new instance
+    ContractFactory-->>User: Return contract address
+    User->>Contract: Set initial greeting
+    Contract-->>User: Confirm transaction
+    User->>Contract: Read greeting
+    Contract-->>User: Return greeting
+    User->>Contract: Set new greeting
+    Contract-->>User: Confirm transaction
+    User->>Contract: Read greeting again
+    Contract-->>User: Return new greeting
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+First clone the repo and install dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+git clone https://github.com/PinataCloud/hello-base
+cd hello-base
+npm install
+```
 
-## Learn More
+Update the `.env.example` to `.env.local` and fill in the environment variables
 
-To learn more about Next.js, take a look at the following resources:
+```
+NEXT_PUBLIC_URL= # Hosted App URL
+NEXT_PUBLIC_FACTORY_ADDRESS= # Address of deployed factory
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Spin up the dev server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+npm run dev
+```

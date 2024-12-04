@@ -30,7 +30,7 @@ export function CreateContractBlock({
 	async function deployContract() {
 		try {
 			writeContract({
-				address: "0xa1E4FeD32ebB56806773A04e40DC88da794a445A",
+				address: process.env.NEXT_PUBLIC_FACTORY_ADDRESS as `0x`,
 				abi: factory.abi,
 				functionName: "createHelloBase",
 			});
